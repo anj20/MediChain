@@ -4,9 +4,7 @@
   "private": true,
   "dependencies": {
     "@material-tailwind/react": "^2.0.5",
-    "@nomicfoundation/hardhat-chai-matchers": "^2.0.1",
     "@nomicfoundation/hardhat-ethers": "^3.0.3",
-    "@nomicfoundation/hardhat-network-helpers": "^1.0.8",
     "@nomicfoundation/hardhat-toolbox": "^3.0.0",
     "@nomicfoundation/hardhat-verify": "^1.0.3",
     "@testing-library/jest-dom": "^5.16.5",
@@ -14,7 +12,6 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.4.0",
     "etherprev": "npm:ethers@^5.7.2",
-    "ethers": "^6.6.2",
     "hardhat": "^2.16.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -22,8 +19,7 @@
     "react-scripts": "5.0.1",
     "tw-elements-react": "^1.0.0-alpha1",
     "web-vitals": "^2.1.4",
-    "web3modal": "^1.9.12",
-    "typechain": "^8.2.0"
+    "web3modal": "^1.9.12"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -50,15 +46,20 @@
     ]
   },
   "devDependencies": {
-    "@nomicfoundation/hardhat-chai-matchers": "^2.0.1",
+    "@ethersproject/providers": "^5.7.2",
+    "@nomicfoundation/hardhat-chai-matchers": "^1.0.6",
     "@nomicfoundation/hardhat-ethers": "^3.0.3",
     "@nomicfoundation/hardhat-network-helpers": "^1.0.8",
     "@nomicfoundation/hardhat-verify": "^1.0.3",
+    "@nomiclabs/hardhat-ethers": "^2.2.3",
+    "@nomiclabs/hardhat-etherscan": "^3.1.7",
+    "@typechain/ethers-v5": "^10.2.1",
     "@typechain/ethers-v6": "^0.4.0",
-    "@typechain/hardhat": "^8.0.0",
+    "@typechain/hardhat": "^6.1.6",
     "@types/chai": "^4.3.5",
-    "@types/mocha": "^10.0.1",
+    "@types/mocha": "^9.1.1",
     "chai": "^4.3.7",
+    "ethers": "^5.7.2",
     "hardhat-gas-reporter": "^1.0.9",
     "solidity-coverage": "^0.8.4",
     "tailwindcss": "^3.3.2",
