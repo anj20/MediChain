@@ -12,10 +12,14 @@ const Searchdoc = () => {
 
   const { getaDoctordetails } = useContext(ContractContext);
   return (
-    <div>
-      <label>Search The Doctor:- </label>
+    <div className="flex justify-around items-center bg-origin-border min-w-screen min-h-screen bg-center bg-cover bg-no-repeat bg-[url('https://media.istockphoto.com/id/1413603540/photo/doctor-researcher-or-scientist-browsing-the-internet-on-a-tablet-for-information-while.webp?b=1&s=170667a&w=0&k=20&c=PPDuQtNcnsnpFWPO4CadGfRYg7RsSelEogUSxmUV6gc=')]">
+      <div className="bg-gradient-to-r from-[#1010108f] to-[#1010108f] min-w-full min-h-screen flex justify-center items-center ">
+      <div className="flex text-[white] p-8 lg:p-6 md:p-4 sm:p-2 justify-around items-center flex-col opacity-100 leading-5">
+      <label className="text-2xl font-semibold pb-2">Search The Doctor </label>
+      <div className="flex gap-3">
       <input
         type="text"
+        className="p-1 text-black rounded-md"
         placeholder="0xWallet Address"
         onChange={(e) => {
           setAddress(e.target.value);
@@ -31,19 +35,22 @@ const Searchdoc = () => {
       >
         Search
       </button>
+      </div>
+      <br/>
       {/* {d.length === 0 ? (
         ""
       ) : ( */}
       <div
-        className="m-2 bg-white border-2 rounded-md backdrop-blur-sm 
-          hover:box-shadow flex items-center justify-center w-[50%] h-[70%] "
+        className="m-2 p-2 border-2 rounded-md backdrop-blur-sm 
+          hover:box-shadow flex items-center justify-center   "
         title={d[0]}
       >
-        <div className="flex flex-col justify-between w-full">
+        <div className="flex flex-col justify-between">
           <img
             src={d[4]}
             alt={d[0]}
-            className="border-4 border-solid border-main rounded-md flex justify-center items-center "
+            
+            className="flex justify-center h-48 w-96 z-10 object-cover rounded-md items-center "
           />
           <div className="flex flex-col justify-around text-center items-center w-auto pb-2">
             <h1 className="font-bold text-2xl pb-2">{d[0]}</h1>
@@ -65,6 +72,8 @@ const Searchdoc = () => {
         </div>
       </div>
       {/* )} */}
+    </div>
+    </div>
     </div>
   );
 };
