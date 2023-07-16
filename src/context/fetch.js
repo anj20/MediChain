@@ -1,7 +1,6 @@
 import React, { useState, createContext } from "react";
 import Web3Modal from "web3modal";
 import { ethers } from "etherprev";
-import axios, { all } from "axios";
 // Internal Import
 import contract from "./Contract.json";
 const contractAddress = process.env.REACT_APP_CONTRACT_ADDRESS;
@@ -16,34 +15,23 @@ export const ContractProvider = ({ children }) => {
   const [allDetails, setAllDetails] = useState(doctorDetails);
   const uploadToIPFS = async (file) => {
     try {
-      if (typeof file === "object") {
-        const formData = new FormData();
-        formData.append("file", file);
-        const resFile = await axios({
-          method: "post",
-          url: "https://api.pinata.cloud/pinning/pinFileToIPFS",
-          data: formData,
-          headers: {
-            pinata_api_key: process.env.REACT_APP_PINATA_API_KEY,
-            pinata_secret_api_key: process.env.REACT_APP_PINATA_SECRET_API_KEY,
-            "Content-Type": `multipart/form-data`,
-          },
-        });
-        const ipfsGateway = `https://gateway.pinata.cloud/ipfs/${resFile.data.IpfsHash}`;
-        return ipfsGateway;
-      } else {
-        const res = await axios({
-          method: "post",
-          url: "https://api.pinata.cloud/pinning/pinJSONToIPFS",
-          data: file,
-          headers: {
-            pinata_api_key: process.env.REACT_APP_PINATA_API_KEY,
-            pinata_secret_api_key: process.env.REACT_APP_PINATA_SECRET_API_KEY,
-          },
-        });
-        const imh = `ipfs://${res.data.IpfsHash}`;
-        return imh;
-      }
+      const formData = new FormData();
+      formData.append("filePath", file);
+      const options = {
+        method: "POST",
+        headers: {
+          accept: "application/json",
+          "X-API-Key": process.env.REACT_APP_VERBWIRE_API_KEY,
+        },
+      };
+      options.body = formData;
+      let imh = "";
+      await fetch("https://api.verbwire.com/v1/nft/store/file", options)
+        .then((response) => response.json())
+        .then((response) => (imh = response.ipfs_storage.ipfs_url))
+        .catch((err) => console.error(err));
+      console.log(imh);
+      return imh;
     } catch (error) {
       console.log(error);
       setError("Error Uploading");
