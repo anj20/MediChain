@@ -1,5 +1,6 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { ContractContext } from "../context/fetch";
+import { use } from "chai";
 function Adddoctor() {
   const { addDoctor, uploadToIPFS } = useContext(ContractContext);
   const [name, setName] = useState("");
@@ -7,10 +8,12 @@ function Adddoctor() {
   const [speciality, setSpeciality] = useState("");
   const [exp, setExp] = useState(0);
   const [imghash, setImghash] = useState("");
+  const [loading, setLoading] = useState(0);
 
   const handleFileChange = async (file) => {
+    setLoading(1);
     const hash = await uploadToIPFS(file);
-    console.log(hash);
+    setLoading(2);
     setImghash(hash);
   };
 
@@ -35,7 +38,11 @@ function Adddoctor() {
                 <input
                   className="text-black pb-5 rounded-md"
                   type="text"
-                  onChange={(e) => setAddress(e.target.value)}
+                  onChange={(e) => {
+                    const addr = e.target.value;
+                    addr.trim();
+                    setAddress(addr);
+                  }}
                 ></input>
               </div>
               <br />
@@ -65,6 +72,12 @@ function Adddoctor() {
                     handleFileChange(e.target.files[0]);
                   }}
                 ></input>
+                {loading === 1 && (
+                  <p className=" text-red-600 mt-3">Uploading...</p>
+                )}
+                {loading === 2 && (
+                  <p className=" text-green-700 mt-3">Uploaded Successfully</p>
+                )}
               </div>
               <div className="flex justify-center items-center pt-2">
                 <button
@@ -72,6 +85,7 @@ function Adddoctor() {
                   onClick={async (e) => {
                     e.preventDefault();
                     await addDoctor(name, speciality, address, exp, imghash);
+                    window.location.reload();
                   }}
                 >
                   Submit

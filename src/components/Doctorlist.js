@@ -5,7 +5,6 @@ export default function Doctorlist() {
   useEffect(() => {
     getAllDoctorsdetails();
   }, []);
-
   return (
     <>
       <div className="bg-origin-border min-w-screen min-h-screen bg-center bg-fixed bg-cover bg-no-repeat bg-[url('https://img.freepik.com/free-vector/healthcare-medical-blue-color_1017-26800.jpg?q=10&h=200')]">
@@ -21,10 +20,13 @@ export default function Doctorlist() {
                   <img
                     src={d[4]}
                     alt={d[0]}
-                    className="border-4 border-solid border-main rounded-md flex justify-center items-center "
+                    style={{ height: "60vh" }}
+                    className="border-4 border-solid border-main rounded-md flex justify-center items-center"
                   />
                   <div className="flex flex-col justify-around text-center items-center w-auto pb-2">
-                    <h1 className="font-bold text-2xl pb-2">{d[0]}</h1>
+                    <h1 className="font-bold text-2xl pb-2 uppercase">
+                      {d[0]}
+                    </h1>
                     <h1>
                       <div className="text-lg font-semibold">
                         Address - {d[1].slice(0, 20)}
