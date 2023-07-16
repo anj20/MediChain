@@ -1,4 +1,4 @@
-# MediChain
+# 👨‍⚕️ MediChain
 
 Welcome to the MediChain repository! This repository hosts the source code and documentation for the MediChain project. MediChain is a blockchain-based system designed to securely store and manage medical records.
 
