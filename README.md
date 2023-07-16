@@ -10,6 +10,7 @@ Welcome to the MediChain repository! This repository hosts the source code and d
 - [Usage](#usage)
 - [Contributing](#contributing)
 - [License](#license)
+- [Presentation](https://tome.app/medichain/revolutionizing-medical-record-management-with-blockchain-technology-clk5d23cp03n1n03btm10830b)
 
 ## Introduction
 
