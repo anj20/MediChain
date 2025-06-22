@@ -1,6 +1,6 @@
 const Home= ()=>{
     return(
-    <div className="flex justify-around items-center bg-origin-border min-w-screen min-h-screen bg-center bg-cover bg-no-repeat bg-[url('https://uwaterloo.ca/engineering/sites/ca.engineering/files/resize/uploads/images/health-electronic-medical-750x343.jpg')]" >
+    <div className="flex justify-around items-center bg-origin-border min-w-screen min-h-screen bg-center bg-cover bg-no-repeat bg-[url('https://img.freepik.com/free-vector/modern-blue-medical-background_1055-6880.jpg?semt=ais_hybrid&w=740')]" >
         <div className=' min-w-full min-h-screen flex ' >
           <div className="flex text-white p-8 lg:p-6 md:p-4 sm:p-2 justify-center  items-center flex-col opacity-100 gap-8">
               <div className="font-semibold text-2xl text-[white]">Effortless Doctor Discovery, Right at Your Fingertips</div>
